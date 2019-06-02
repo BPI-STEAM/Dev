@@ -36,6 +36,8 @@ BPI-BIT 是一款基于 ESP32 高性能芯片且兼容 micro:bit 设计的开源
    :maxdepth: 2
    :caption: MicroPython
 
+   mpy/index.rst
+
 开发 Webduino 积木 
 ---------------------------
 
@@ -44,6 +46,9 @@ BPI-BIT 是一款基于 ESP32 高性能芯片且兼容 micro:bit 设计的开源
 .. toctree::
    :maxdepth: 2
    :caption: Webduino
+   
+   web/index.rst
+
 
 金手指拓展板设计
 ---------------------------
