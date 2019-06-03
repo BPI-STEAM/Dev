@@ -38,7 +38,9 @@ Blockly 积木体系
 
 这意味着，Blockly积木块本身只是代码的映射，并非是某一个可以调用的功能，这个区别你应该可以体验出来。
 
-可以在此体验 `Blockly <https://developers.google.cn/blockly/>`_ 的积木运行。
+可以在此体验 `Try Blockly <https://developers.google.cn/blockly/>`_ 的积木运行。
+
+.. image:: mechanism/blockly_to_code.png
 
 不同的运行机制会导致什么现象呢？
 ----------------------------------------

@@ -29,3 +29,4 @@
    mechanism.rst
    blockly.rst
    develop.rst
+   modify.rst
