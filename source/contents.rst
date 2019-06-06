@@ -61,6 +61,12 @@ BPI-BIT 是一款基于 ESP32 高性能芯片且兼容 micro:bit 设计的开源
 
 .. image:: _static/footer.png
 
+.. toctree::
+   :maxdepth: 2
+   :caption: IoT
+   
+   iot/index.rst
+
 Indices and tables
 ==================
 
