@@ -30,4 +30,3 @@
    blockly.rst
    develop.rst
    modify.rst
-   iotptf.rst
