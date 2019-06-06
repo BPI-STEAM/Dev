@@ -127,4 +127,8 @@ library.xml             积木的设计库，可导回设计器中重新设计
 
 .. image:: images/pages_commit.png
 
-注意 fork 的 readme 的内容并没有改变，所以发布的时候，别忘了修改积木地址。
+.. Attention::
+
+    注意 fork 的 readme 的内容并没有改变，所以发布的时候，别忘了修改积木地址。
+
+接下来就开始从修改一个示例模板开始写积木吧。
