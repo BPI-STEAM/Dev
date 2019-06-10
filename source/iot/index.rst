@@ -24,4 +24,5 @@ IoT 平台规划
    :maxdepth: 2
 
    sign_up.rst
+   operations.rst
    create_device.rst
