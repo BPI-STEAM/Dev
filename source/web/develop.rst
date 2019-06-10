@@ -1,37 +1,14 @@
 了解拓展积木模板
 ==================================================================
 
-认识 Blockly 积木设计器
----------------------------------
+从先前的文档中得知什么是 Google Blockly 设计器，那我们就先从模仿一个通用的模板开始吧。
 
-前面我们已经介绍了什么是 Blockly ，现在就来说说，怎么开发它们。
-
-- 谷歌源 `GOOGLE Blockly Developer Tools <https://blockly-demo.appspot.com/static/demos/blockfactory/index.html>`_
-
-- 国内源 `Blockly Developer Tools <http://walkline.wang/blockly/blockfactory/>`_
-
-- 可选 `备用源 <https://blockly.yelvlab.cn/google/blockly/demos/blockfactory/index.html?tdsourcetag=s_pctim_aiomsg>`_
-
-.. image:: images/blockly_developer.png
-
-设计器使用方法参见以下两篇介绍文档，两篇参考资料可选。
-
-- `Blockly 创建自定义块-概述 <https://itbilu.com/other/relate/H1huYbEWQ.html>`_
-- `Blockly 创建自定义块-Blockly 开发者工具 <https://itbilu.com/other/relate/r1IhFZV-X.html>`_
-
-可选参考资料。
-
-- `Blockly - 来自Google的可视化编程工具 <https://itbilu.com/other/relate/4JL8NjUP7.html>`_
-- `Blockly 的配置 <https://itbilu.com/other/relate/Ek5ePdjdX.html>`_
+请先了解一下这个 `webduino-blockly-template <https://bpi.org.cn/webduino-blockly-template>`_ 示例项目，并下载获得。
 
 拓展积木的基本构成
 ---------------------------------
 
-假设学会使用上述设计器，那就从一个通用的模板开始吧。
-
-请看这个 `webduino-blockly-template <https://bpi.org.cn/webduino-blockly-template/blockly.json>`_ 示例项目。
-
-认识模板目录文件，如下一系列表格，稍后会详细介绍。
+先认识一下模板目录文件，如下一系列表格，稍后会详细介绍。
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 webduino-blockly-template
@@ -131,4 +108,4 @@ library.xml             积木的设计库，可导回设计器中重新设计
 
     注意 fork 的 readme 的内容并没有改变，所以发布的时候，别忘了修改积木地址。
 
-接下来就开始从修改一个示例模板开始写积木吧。
+接下来就从修改一个示例模板开始写积木吧，此处内容，主要是纵观积木开发全局。
