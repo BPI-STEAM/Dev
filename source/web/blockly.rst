@@ -6,7 +6,7 @@
 但在这里就用一些 Webduino Blockly 的开发示例带领入门，但并不是教你如何开发 Webduino Blockly 网站，而是开发 Blockly 积木。
 
 认识 Webduino Blockly 
---------------------
+----------------------------------------
 
 Blockly 最佳实践语言是 JavaScript 环境，如今配合 HTML5 的飞速发展，不难想象它可以轻松的让人开发出成果，快速产生成就感。
 
@@ -19,7 +19,7 @@ Webduino Blockly 使用的是标准的 Blockly 环境，它所用的 Blockly 生
     开发 Webduino Blockly 积木不需要像 Scratch3 一样在服务器源码中添加自定义积木代码。
 
 应该如何开始？
---------------------
+----------------------------------------
 
 .. Hint::
 
