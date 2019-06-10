@@ -4,7 +4,7 @@
 
 ## 查看范例积木
 
-进入积木设计器，我选择了国内源 [Blockly Developer Tools](http://walkline.wang/blockly/blockfactory/) 如下图。
+进入积木设计器，一般使用国内源 [Blockly Developer Tools](http://walkline.wang/blockly/blockfactory/) 如下图。
 
 ![](images/blockly_tools.png)
 
