@@ -1,6 +1,13 @@
 IoT 平台规划
 =====================================================
 
+项目文件已经托管到 Github，不过尚未完成，目前计划是写一部分文档，再写一部分代码去完成文档中的功能，一步一步慢慢来
+
+项目地址
+-------------------
+https://github.com/Walkline80/IoT-Platform-Web
+
+
 受到 `帅大叔`_ 之前玩的使用贝壳物联接入天猫精灵，再通过天猫精灵语音控制设备的启发，准备自己实现一下这个过程，不过不是通过第三方的物联网平台。
 
 .. _帅大叔: https://github.com/youxinweizhi
@@ -21,8 +28,9 @@ IoT 平台规划
     所谓下发指令并不是从平台直接下达指令到设备让设备去执行，而是给虚拟设备标记一个期望值，比如期望设备做出 power on 的动作，或者期望得到设备当前的 power state，当硬件设备在轮训期间得到期望值会主动执行动作或者上报状态等。
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   sign_up.rst
-   operations.rst
-   create_device.rst
+    sign_up.rst
+    operations.rst
+    create_device.rst
+    change_log.rst
