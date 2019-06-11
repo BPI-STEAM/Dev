@@ -30,7 +30,7 @@ https://github.com/Walkline80/IoT-Platform-Web
 .. toctree::
     :maxdepth: 2
 
-    sign_up.rst
-    operations.rst
-    create_device.rst
-    change_log.rst
+    sign_up
+    operations
+    create_device
+    change_log
