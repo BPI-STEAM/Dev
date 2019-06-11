@@ -30,15 +30,16 @@ https://github.com/Walkline80/IoT-Platform-Web
 
 .. toctree::
     :maxdepth: 2
-
+    :hidden:
+    
     sign_up
     operations
     create_device
 
 更新日志
-------------------------------
+----------------------
 
 .. toctree::
     :maxdepth: 2
-    
+        
     change_log
