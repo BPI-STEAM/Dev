@@ -33,4 +33,3 @@ https://github.com/Walkline80/IoT-Platform-Web
     sign_up
     operations
     create_device
-    change_log
