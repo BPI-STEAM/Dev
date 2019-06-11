@@ -24,7 +24,7 @@
 .. toctree::
    :maxdepth: 2
 
-   mechanism.rst
-   blockly.rst
-   develop.rst
-   modify.rst
+   blockly
+   develop
+   modify
+   mechanism
