@@ -5,6 +5,7 @@ IoT 平台规划
 
 项目地址
 -------------------
+
 https://github.com/Walkline80/IoT-Platform-Web
 
 
@@ -14,8 +15,8 @@ https://github.com/Walkline80/IoT-Platform-Web
 
 这里的规划先不包括接入天猫精灵，因为只要平台建立起来，要接入是很简单的事情，其次，要自己实现物联网平台，理论上也并不困难(自我催眠中)
 
-大致流程是这样的
----------------
+接入流程
+------------------------------
 
 1. 首先用户登录平台，注册账号并登录
 2. 用户在平台上创建虚拟设备
@@ -33,3 +34,11 @@ https://github.com/Walkline80/IoT-Platform-Web
     sign_up
     operations
     create_device
+
+更新日志
+------------------------------
+
+.. toctree::
+    :maxdepth: 2
+    
+    change_log
