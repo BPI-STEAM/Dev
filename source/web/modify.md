@@ -97,33 +97,6 @@ Blockly.JavaScript['itpk_ask'] = function(block) {
 
 ## 添加新的积木
 
-<table>
-<thead>
-<tr class="header">
-<th>1</th>
-<th>2</th>
-<th>3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>4</td>
-<td>5</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>8</td>
-<td>9</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
 ## 添加对应功能
 
 ## 添加积木语言
