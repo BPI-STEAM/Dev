@@ -211,7 +211,7 @@ Blockly.JavaScript['itpk_ask_ip'] = function(block) {
 </category>
 ```
 
-以下是原内容，现在在后面添加新内容，变成如下代码。
+在后面添加新内容，变成如下代码。
 
 ```xml
 <category id="catItpk">
@@ -255,11 +255,11 @@ Blockly.JavaScript['itpk_ask_ip'] = function(block) {
 </category>
 ```
 
-现在，你已经将自己设计的积木添加进去了，此时你还需要最后一步，就可以载入积木看到效果了。
+现在，你已经将自己设计的积木添加进去了，此时你还需要最后一步，就可以载入积木看到效果。
 
 在 blockly.json 中添加你的积木类型（types），因为它是一个全新的积木所以需要添加进去，否则不会被载入到动态积木中。
 
-看一下 blockly.json 的内容，然后在 types 列中添加 `"itpk_ask_ip",`
+查看 blockly.json 的内容，然后在 types 列中添加 `"itpk_ask_ip",`
 
 ```json
 {
@@ -287,7 +287,7 @@ Blockly.JavaScript['itpk_ask_ip'] = function(block) {
 
 > 以下的操作均在浏览器无痕模式下进行。（等你足够了解后，可以先移除积木后刷新再重新载入积木）。
 
-现在你可以提交它，然后等一会提交成功后，可以载入 `https://junhuanchen.github.io/webduino-blockly-template/blockly.json` 积木查看效果了。（写这篇文档的时候，不小心操作失误了）
+现在你可以提交它，然后等一会提交成功后，可以载入 `https://junhuanchen.github.io/webduino-blockly-template/blockly.json` 积木查看效果了。
 
 ![](images/new_toolbox.png)
 
