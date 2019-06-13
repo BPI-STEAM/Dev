@@ -21,16 +21,61 @@ OAuth2 授权，在授权的时候再调用一次 OAuth2 授权有点太复杂�
 
 ### 字段设计
 
-| name     | type     | length |
-| :-:      | :-:      | :-:    |
-| email    | varchar  | 20     |
-| nickname | varchar  | 20     |
-| passwd   | varchar  | 32     |
-| mobile   | varchar  | 11     |
-| uuid     | varchar  | 36     |
-| group    | int      |        |
-| enabled  | int      |        |
-| ip       | varchar  | 15     |
-| date     | datetime |        |
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">name</th>
+<th style="text-align: center;">type</th>
+<th style="text-align: center;">length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">email</td>
+<td style="text-align: center;">varchar</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">nickname</td>
+<td style="text-align: center;">varchar</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">passwd</td>
+<td style="text-align: center;">varchar</td>
+<td style="text-align: center;">32</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">mobile</td>
+<td style="text-align: center;">varchar</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">uuid</td>
+<td style="text-align: center;">varchar</td>
+<td style="text-align: center;">36</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">group</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">enabled</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ip</td>
+<td style="text-align: center;">varchar</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">date</td>
+<td style="text-align: center;">datetime</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
 
 
