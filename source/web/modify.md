@@ -101,8 +101,6 @@ Blockly.JavaScript['itpk_ask_ip'] = function(block) {
 
 获取这两段定义内容，然后将它添加到创建的模板积木中，注意结合前一章的目录下的文件描述。
 
-blockly_exporter_get.png
-
 进入 blockly/blocks.js ，在后面添加 Block Definitions 的代码。
 
 ```javascript
