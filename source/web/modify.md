@@ -2,13 +2,19 @@
 
 > 欲读懂内部工作机制，请学习 [HTML5](https://www.runoob.com/html/html5-intro.html) 和 [ECMAScript 6](https://www.runoob.com/w3cnote/es6-concise-tutorial.html) 。
 
+我们在前一节中已经掌握了如何创建和使用积木的方法，这节我们将基于标准模板的积木进行开发。
+
 ## 查看范例积木
 
-进入积木设计器，一般使用国内源 [Blockly Developer Tools](http://walkline.wang/blockly/blockfactory/) 如下图。
+进入积木设计器，可以使用国内源 [Blockly Developer Tools](http://walkline.wang/blockly/blockfactory/) 如下图。
 
 ![](images/blockly_tools.png)
 
-将 [webduino-blockly-template](https://github.com/BPI-STEAM/webduino-blockly-template) 代码 clone 得到（或使用模板新建项目），将文件里的 demo/library.xml 导回积木设计器，参考已有积木，重新设计出属于你的积木。
+使用该模板项目 [webduino-blockly-template](https://github.com/BPI-STEAM/webduino-blockly-template) ，并将它的代码通过 download 或 clone 得到它。
+
+![](images/demos_library.png)
+
+将文件里的 demo/library.xml 导回积木设计器，参考已有积木，重新设计出属于你的积木。
 
 ![](images/select_library.png)
 
@@ -48,10 +54,14 @@
 
 ![](images/itpk_get_ip.png)
 
+我们最后来改个名字并保存一下新的积木块，免得弄丢了，如下图。
+
+![](images/save_itpk_get_ip.png)
+
 现在积木就设计完成了，但我们需要看，它对应的样式代码是怎样的才能放入我们的 Webduino Blockly 当中，所以看 Block Definition 的代码。
 
 ```javascript
-Blockly.Blocks['itpk_ask'] = {
+Blockly.Blocks['itpk_ask_ip'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("问 茉莉 查本机网络 IP ");
@@ -69,7 +79,7 @@ Blockly.Blocks['itpk_ask'] = {
 以上就是你所见到的积木它的定义代码，可以理解为是这段代码描述了积木的样子，也就是说，你也可以不通过 Blockly 设计器来修改积木外观，以及它对应的需要用户实现的桩代码：
 
 ```javascript
-Blockly.JavaScript['itpk_ask'] = function(block) {
+Blockly.JavaScript['itpk_ask_ip'] = function(block) {
   var statements_callback = Blockly.JavaScript.statementToCode(block, 'callback');
   // TODO: Assemble JavaScript into code variable.
   var code = '...;\n';
@@ -77,13 +87,9 @@ Blockly.JavaScript['itpk_ask'] = function(block) {
 };
 ```
 
-这个函数可以为积木提供背后生成的代码环境，例如将 var code = 'var test = 123;\n'; 这样就表示，这个积木块拖拽出来将提供 `var test = 123;\n` 的代码，也就是所谓的生成代码积木，积木块对应着代码，接下来我们就要将其导入我们的原本的积木当中。
+这个函数可以为积木提供背后生成的代码环境，例如将 `var code = 'var test = 123;\n';` 这样就表示，这个积木块拖拽出来将提供 `var test = 123;\n` 的代码，也就是所谓的积木生成代码，积木块对应着代码，接下来我们就要将其导入我们的原本的积木当中。
 
-我们最后来改个名字并保存一下新的积木块，免得丢失了，如图。
-
-![](images/save_itpk_get_ip.png)
-
-积木设计器还有很多重要的功能需要你自己去发掘，比如：
+关于积木设计器还有很多重要的功能需要你自己去发掘，比如：
 
 - Block Exporter 可以批量选取积木并导出对应代码。
 
@@ -96,6 +102,12 @@ Blockly.JavaScript['itpk_ask'] = function(block) {
 以上功能，如果有涉及到的都会提及，但不会面面俱到，如果有疑问可以到社区里提问，有关于积木设计器的功能预览就普及到这里了，记得下载保存你的积木配置（Download）。
 
 ## 添加新的积木
+
+![](images/blockly_itpk_ask_ip.png)
+
+现在我们制作了一个积木块，我们需要添加到我们自己的积木里，先看一下我们想要添加的积木的效果。
+
+然后将它添加到 Webduino Blockly 中，注意结合前一章的目录下的文件描述。
 
 ## 添加对应功能
 

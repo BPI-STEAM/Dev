@@ -78,17 +78,30 @@ library.xml             积木的设计库，可导回设计器中重新设计
 
 这些基本的定义是便于修改模板积木过程中查阅其确切定义。
 
-拓展积木的外链说明
+拓展积木的使用方法
 ---------------------------------
 
-根据 `拓展积木的使用说明 <http://doc.bpi.org.cn/zh_CN/latest/bpi-web/modules/basic.html>`_ 可知插件地址外链类似这样：`https://bpi.org.cn/webduino-blockly-template/blockly.json` 的地址，又或者是这样 `https://junhuanchen.github.io/webduino-module-itpk-robot/blockly.json` ，请确保在访问的时候，使用 https 访问且内容类似下图的 JSON 效果。
+如果是托管在 Github 上的积木，可以根据 `拓展积木的使用说明 <http://doc.bpi.org.cn/zh_CN/latest/bpi-web/modules/basic.html>`_ 可知插件地址外链类似这样：`https://bpi.org.cn/webduino-blockly-template/blockly.json` 的地址，又或者是这样 `https://junhuanchen.github.io/webduino-module-itpk-robot/blockly.json` ，请确保在访问的时候，使用 https 访问且内容类似下图的 JSON 效果。
 
 .. image:: images/blockly_json.png
 
-拓展积木的托管说明
+拓展积木的模板创建
 ---------------------------------
 
-如果发现 fork 该模板项目后无法直接外链使用，请设置 Github Pages 的 Source，如下描述，这是因为它需要转换为该链接，以个人的 Github 为例，如下图是没有设置的情况。
+请尝试使用该项目进行操作，如图点击绿色按钮（Use this template），这将 fork 到你的项目中，此时。
+
+.. image:: images/use_template.png
+
+类似这样的效果，注意上述所述的使用方法。
+
+.. image:: images/template_example.png
+
+上图的积木插件地址应为：`https://junhuanchen.github.io/webduino-blockly-telecar/blockly.json` ，而模板插件地址则是 `https://bpi.org.cn/webduino-blockly-template/blockly.json` ，记得在 readme 里修改对应提供的地址，将插件托管到 Github 的方法请继续往下看。
+
+拓展积木的托管配置
+---------------------------------
+
+一般来说，我们会将积木托管在 Github 上，这样就不需要自己额外提供一个网络空间了，所以当我们 fork 项目的时候，会发现创建的模板项目，无法直接使用类似上述的插件外链使用，所以这时候需要你设置 Github Pages 的 Source，如下描述，这是因为它需要转换为该链接，以个人的 Github 为例，如下图是没有设置的情况。
 
 .. image:: images/pages_source.png
 
@@ -108,4 +121,4 @@ library.xml             积木的设计库，可导回设计器中重新设计
 
     注意 fork 的 readme 的内容并没有改变，所以发布的时候，别忘了修改积木地址。
 
-接下来就从修改一个示例模板开始写积木吧，此处内容，主要是纵观积木开发全局。
+现在，你通过 fork 就已经学会了如何创建一个动态积木，那接下来就从修改一个示例模板开始写积木吧。
