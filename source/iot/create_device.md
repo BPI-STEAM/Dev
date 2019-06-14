@@ -32,7 +32,7 @@
 
 则显示内容如图：
 
-![设备列表](images/device_list.png)
+![](images/device_list.png)
 
 > 此例中的两个 `开关` 字样是对应 `deviceType` 的 `switch`，是不能自己指定的
 
