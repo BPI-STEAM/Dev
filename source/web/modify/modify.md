@@ -394,7 +394,7 @@ scope.itpk_quick_ask = function (question, callback) {
 }
 ```
 
-我们看到类似 `"{0}-{1}".format(1, 2)` 的操作，这个操作是将代码进行格式化，可以帮助生成代码的格式化输入，提供字符串的封装方法，而不是 "1" + "-" + "2" 的方式，例如下述代码。
+在 blockly/itpk-blockly.js 我们看到类似 `"{0}-{1}".format(1, 2)` 的操作，这个操作是将代码进行格式化，可以帮助生成代码的格式化输入，提供字符串的封装方法，而不是 "1" + "-" + "2" 的方式，例如下述代码。
 
 ```javascript
 scope.itpk_quick_ask = function (question, callback) {
@@ -406,10 +406,262 @@ scope.itpk_quick_ask = function (question, callback) {
 
 ## 添加对应功能
 
-## 积木功能整合
+现在积木已经生成，但是我们要如何为如下代码添加对应的功能呢？
+
+```javascript
+scope.itpk_answer = function () {
+  return "webduino.module.RobotItpk.answer()";
+}
+```
+
+我们继续看它的生成代码，这个实际上就是生成（返回）一段调用 blockly/itpk-blockly.js 函数的 `webduino.module.RobotItpk.answer()` 代码，所以我们需要在 blockly/itpk-blockly.js 中提供这个函数的实现，也就是如下代码。
+
+```javascript
+RobotItpk.answer = function () {
+    return answer.replace("[cqname]", "moli");
+}
+```
+
+我们可以在单元测试（unit_test）中得知它的用法。
+
+```javascript
+function unit_test() {
+  webduino.module.RobotItpk.ask('东莞天气如何？');
+  setTimeout(function(){
+    console.log(webduino.module.RobotItpk.answer());
+    webduino.module.RobotItpk.ask('高雄天气如何？');
+    setTimeout("console.log(webduino.module.RobotItpk.answer())", 1000);
+  }, 1000);
+}
+```
+
+但是为什么可以链接起来？这需要看 blockly.json 的定义。
+
+```javascript
+{
+  "types": [
+    "itpk_ask_ip",
+    "itpk_ask",
+    "itpk_answer",
+    "itpk_clear"
+  ],
+  "category": "itpk",
+  "scripts": [
+    "https://cdn.jsdelivr.net/gh/yarrem/stringFormat.js/format.js",
+    "itpk-blockly.js",
+    "blockly/blocks.js",
+    "blockly/javascript.js"
+  ],
+  "dependencies": [
+    "itpk.js"
+  ],
+  "msg": "blockly/msg",
+  "blocksMsg": "blockly/msg/blocks",
+  "toolbox": "blockly/toolbox.xml"
+}
+```
+
+关于依赖的 javascript 代码的使用情况，我们需要将 Blockly 分成两个场景，第一是积木生成代码阶段的，第二是生成代码的时候运行依赖，也就是 `scripts` 和 `dependencies` 两列，如你所见的是 `scripts` 包含的是 Blockly 积木相关联的实现代码，而 `dependencies` 则是代码运行的时候依赖的 javascript 代码，例如 `itpk.js` 代码可以在运行代码的时候实现。
 
 ## 积木功能测试
 
+当我们知道了如何添加自己的功能代码，就要脱离这个 Blockly 生产环境来测试我们的代码了，在开发环境中，分本地和在线测试运行代码，需要注意的是，本地测试的代码具备一定的特殊性，比如没办法依赖 Webduino 中提供的其他功能，例如无法使用 webduino.module 这个模块变量。
+
+### 本地测试积木功能
+
+所以在本地写经典代码时，一般需要单独测试和移植，例如下面的茉莉机器人 API 的测试代码 `itpk.html` 。
+
+```javascript
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>茉莉机器人 API 测试</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        AskItpk = function (question) {
+            $.post("http://i.itpk.cn/api.php", {
+                'question': question
+            }, function (data) {
+                console.log("数据：" + data);
+            });
+        }
+        AskItpk('东莞天气如何？');
+    </script>
+</body>
+
+</html>
+```
+
+> 代码无高低，能用就行。
+
+通过这样的方式再转换改写成 `itpk.js` 的模块结构代码，看如下代码。
+
+```javascript
++(function (factory) {
+    if (typeof exports === 'undefined') {
+        factory(webduino || {});
+    } else {
+        module.exports = factory;
+    }
+}(function (scope) {
+    'use strict';
+  
+    const url = "https://i.itpk.cn/api.php";
+    var answer = "";
+
+    function RobotItpk() {
+        Module.call(this);
+    }
+
+    RobotItpk.ask = function (question) {
+        $.post(url, {
+            'question': question
+        }, function (respond) {
+            // console.log(data);
+            answer = respond;
+        });
+    }
+    
+    RobotItpk.clear = function () {
+        answer = "";
+    }
+    
+    RobotItpk.answer = function () {
+        return answer.replace("[cqname]", "moli");
+    }
+
+    RobotItpk.quick_ask = function (question, callback) {
+        $.post(url, {
+            'question': question
+        }, function (respond) {
+            answer = respond
+            callback();
+        });
+    }
+
+    scope.module.RobotItpk = RobotItpk;
+
+}));
+
+function unit_test() {
+  webduino.module.RobotItpk.ask('东莞天气如何？');
+  setTimeout(function(){
+    console.log(webduino.module.RobotItpk.answer());
+    webduino.module.RobotItpk.ask('高雄天气如何？');
+    setTimeout("console.log(webduino.module.RobotItpk.answer())", 1000);
+  }, 1000);
+  
+}
+
+// unit_test();
+
+```
+
+但你也可以直接使用 AMD JS 代码的方式，规范的模块化整合到积木环境中，这就需要你具备一定的现代  JS 代码模块规范的基础，可以先了解 [webpack-demo](https://github.com/BPI-STEAM/webpack-demo) 或配合这个示例项目 [webpack-develop-example](https://github.com/BPI-STEAM/webpack-develop-example) 来操作，这将有利于你写出规范的专业代码，就像下面这样的代码直接编译运行在浏览器，这将高度符合 Webduino Blockly 的运行环境。
+
+```javascript
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // Node, CommonJS etc
+        module.exports = factory(require('jquery'));
+    } else {
+        // Browser global variable (root is window)
+        root.returnExports = factory(root.jQuery);
+    }
+}(this, function ($) {
+
+    'use strict';
+
+    const url = "https://i.itpk.cn/api.php";
+    var answer = "";
+
+    var proto;
+
+    var RobotItpk = function () {
+
+    };
+
+    RobotItpk.prototype = proto = Object.create({
+        constructor: {
+            value: RobotItpk
+        }
+    });
+
+    proto.ask = function (question) {
+        $.post(url, {
+            'question': question
+        }, function (respond) {
+            console.log(respond);
+            answer = respond;
+        });
+    }
+
+    proto.clear = function () {
+        answer = "";
+    }
+
+    proto.answer = function () {
+        return answer.replace("[cqname]", "moli");
+    }
+
+    proto.quick_ask = function (question, callback) {
+        $.post(url, {
+            'question': question
+        }, function (respond) {
+            console.log(respond);
+            answer = respond
+            callback();
+        });
+    }
+
+    window.RobotItpk = RobotItpk;
+
+}));
+
+var ts = new window.RobotItpk();
+ts.ask("nihao");
+
+setTimeout(function () {
+    document.write('<h1>' + ts.answer() + '</h1>');
+}, 1000);
+```
+
+### 在线测试积木功能
+
+我们可以在积木的时候里面进行代码的查看，如下图操作。
+
+![](images/webduino_into_js_bin.png)
+
+如你所见，可以在这里进行代码的运行以及调试。
+
+![](images/into_js_bin.png)
+
+[JS bin](https://bin.webduino.com.cn/?html,css,js,output) 是一款在线编写浏览器 JS 工具，可以在这里进行你的调试于测试，比如我们可以这样做，将 itpk-blockly.js 或 itpk.js 文件代码放入下图所述位置，即可自动运行输出。
+
+![](images/js_bin_run.png)
+
+> 上图需要你点开 Console 控制台输出 debug 信息，并且粘贴 itpk.js 代码后拉到低下取消 unit_test() 的注释，从而运行单元测试，默认修改代码自动运行。
+
 ## 添加积木语言
 
+最后积木制作出来后，为了与国际化接轨，我们还需要为积木添加多语言，但这一步需要修改 blocks.js 设计器生成代码，连接多语言变量的定义，所以请确保该积木已经相对稳定后再添加多语言功能。
+
+我们拿内部例子来举例，例如 blockly/msg/en.js 文件中的内容。
+
+```javascript
+MSG.catItpk = 'Itpk Robot';
+```
+
+这实际上就对应着
+
 ## 积木发布测试
+
+ 

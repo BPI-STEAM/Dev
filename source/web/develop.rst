@@ -92,6 +92,10 @@ library.xml             积木的设计库，可导回设计器中重新设计
 
 .. image:: images/use_template.png
 
+将它配置到你的积木名称和描述，可以随意。
+
+.. image:: images/create_template.png
+
 类似这样的效果，注意上述所述的使用方法。
 
 .. image:: images/template_example.png
