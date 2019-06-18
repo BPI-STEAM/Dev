@@ -23,7 +23,6 @@
 
 .. toctree::
    :maxdepth: 2
-   :numbered:
 
    blockly
    develop
