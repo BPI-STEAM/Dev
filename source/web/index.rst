@@ -26,5 +26,5 @@
 
    blockly
    develop
-   modify
+   modify/modify
    mechanism
