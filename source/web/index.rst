@@ -23,8 +23,9 @@
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
 
    blockly
    develop
-   modify/modify
+   modify/index
    mechanism
