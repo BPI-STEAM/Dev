@@ -3,7 +3,7 @@
 
 从先前的文档中得知什么是 Google Blockly 设计器，那我们就先从模仿一个通用的模板开始吧。
 
-请先了解一下这个 `webduino-blockly-template <https://bpi.org.cn/webduino-blockly-template>`_ 示例项目，并下载获得。
+请先了解一下这个 `webduino-blockly-template <https://bpi-steam.com/webduino-blockly-template>`_ 示例项目，并下载获得。
 
 拓展积木的基本构成
 ---------------------------------
