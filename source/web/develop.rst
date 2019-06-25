@@ -81,7 +81,7 @@ library.xml             积木的设计库，可导回设计器中重新设计
 拓展积木的使用方法
 ---------------------------------
 
-如果是托管在 Github 上的积木，可以根据 `拓展积木的使用说明 <http://doc.bpi.org.cn/zh_CN/latest/bpi-web/modules/basic.html>`_ 可知插件地址外链类似这样：`https://bpi.org.cn/webduino-blockly-template/blockly.json` 的地址，又或者是这样 `https://junhuanchen.github.io/webduino-module-itpk-robot/blockly.json` ，请确保在访问的时候，使用 https 访问且内容类似下图的 JSON 效果。
+如果是托管在 Github 上的积木，可以根据 `拓展积木的使用说明 <http://doc.bpi-steam.com/zh_CN/latest/bpi-web/modules/basic.html>`_ 可知插件地址外链类似这样：`https://bpi-steam.com/webduino-blockly-template/blockly.json` 的地址，又或者是这样 `https://junhuanchen.github.io/webduino-module-itpk-robot/blockly.json` ，请确保在访问的时候，使用 https 访问且内容类似下图的 JSON 效果。
 
 .. image:: images/blockly_json.png
 
@@ -100,7 +100,7 @@ library.xml             积木的设计库，可导回设计器中重新设计
 
 .. image:: images/template_example.png
 
-上图的积木插件地址应为：`https://junhuanchen.github.io/webduino-blockly-telecar/blockly.json` ，而模板插件地址则是 `https://bpi.org.cn/webduino-blockly-template/blockly.json` ，记得在 readme 里修改对应提供的地址，将插件托管到 Github 的方法请继续往下看。
+上图的积木插件地址应为：`https://junhuanchen.github.io/webduino-blockly-telecar/blockly.json` ，而模板插件地址则是 `https://bpi-steam.com/webduino-blockly-template/blockly.json` ，记得在 readme 里修改对应提供的地址，将插件托管到 Github 的方法请继续往下看。
 
 拓展积木的托管配置
 ---------------------------------
